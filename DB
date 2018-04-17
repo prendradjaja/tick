@@ -1,0 +1,5 @@
+db/
+  2018-01-01/
+    13-05--desc--uuid
+
+desc is truncated to first 10 chars

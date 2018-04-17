@@ -4,6 +4,9 @@ ENTRY
 - stop
 - color
 - description
+- hashtags
+  - colors determine default tags
+  - case-insensitive
 
 RECORD
 - start rec
@@ -23,9 +26,6 @@ ANALYZE
 
 V2
 - batch edit
-- hashtags
-  - colors determine default tags
-  - case-insensitive
 
 V3
 - analyze: split tags

@@ -1,0 +1,2 @@
+tech debt:
+- entry['date'] etc should be entry.date?
