@@ -1,0 +1,31 @@
+ENTRY
+- date
+- start
+- stop
+- color
+- description
+
+RECORD
+- start rec
+  - color
+  - description
+- stop rec
+- continue
+- manual entry
+- half-and-half
+
+ANALYZE
+- ...a day
+- sum up each tag (or color)
+  - sorted by what you spent most of your time on
+  - show mins/h:mm/percent
+- merge tags
+
+V2
+- batch edit
+- hashtags
+  - colors determine default tags
+  - case-insensitive
+
+V3
+- analyze: split tags
