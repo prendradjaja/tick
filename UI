@@ -1,0 +1,25 @@
+$ tick
+
+$ tick red
+
+$ tick red -d something
+
+$ tick red -d "something else"
+
+$ tock  # or tick --tock
+
+$ tick -i
+- spacebar for switching between recording and not
+  - TODO is this likely to lead to errors with typing descriptions containing spaces?
+- c for color
+- d for description
+- edit previous entries
+- shows current timeline while it's being built
+
+$ tick --timeline
+
+$ tick --report
+
+
+V2:
+- tick -i: t for tags
