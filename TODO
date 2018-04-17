@@ -1,2 +1,6 @@
+v0:
+x persist entries
+x get last entry
+
 tech debt:
 - entry['date'] etc should be entry.date?

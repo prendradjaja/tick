@@ -8,6 +8,7 @@ import os
 import re
 import shutil
 import uuid
+import datetime
 
 from misc import NotImplementedException, fail_if, get_install_dir
 import constants
@@ -69,11 +70,31 @@ class _Persistence:
         with open(path, 'w') as f:
             f.write(json.dumps(obj, cls=_UUIDEncoder))
 
+    def get_newest_entry_today_if_any(self):
+        today = datetime.date.today().isoformat()
+        date_dir = os.path.join(self._db_dir, today)  # TODO duped in write_entry, should be inst attr
+        self._ensure_dir_exists(date_dir)
+
+        entries = sorted(os.listdir(date_dir))
+
+        if entries:
+            path = os.path.join(self._db_dir, date_dir, entries[-1])
+            with open(path) as f:
+                stuff = json.load(f)
+                kwargs = dict(zip(stuff['schema'], stuff['data']))
+                return entry.Entry(**kwargs)
+        else:
+            return None
+
     def _ensure_dir_exists(self, directory):
         if not os.path.exists(directory):
             os.makedirs(directory)
 
 _persistence = _Persistence()
 
+# TODO this is dumb
 def write_entry(e):
     _persistence.write_entry(e)
+
+def get_newest_entry_today_if_any():
+    return _persistence.get_newest_entry_today_if_any()

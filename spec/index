@@ -13,6 +13,8 @@ RECORD
   - color
   - description
 - stop rec
+- start a new one and finish the last one
+- stop (but i forgot to close the last one)
 - continue
 - manual entry
 - half-and-half

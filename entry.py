@@ -25,4 +25,7 @@ def persist(e):
     validate(e)
     persistence.write_entry(e)
 
+def get():
+    pass
+
 # TODO when mutating an entry, if start time or description changes you need to make sure to write to the old name (or delete the old name). prob best to sidestep this by never mutating exc to add a stop time
