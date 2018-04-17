@@ -9,15 +9,13 @@ ENTRY
   - case-insensitive
 
 RECORD
-- start rec
-  - color
-  - description
-- stop rec
-- start a new one and finish the last one
-- stop (but i forgot to close the last one)
-- continue
-- manual entry
-- half-and-half
+- SPACE start rec
+  - C color
+  - D description
+- SPACE stop rec
+- E manually enter END of current interval (use case: forgot to end it)
+- R RESUME last thing
+- M MANUAL entry
 
 ANALYZE
 - ...a day
@@ -27,7 +25,9 @@ ANALYZE
 - merge tags
 
 V2
+- half-and-half
 - batch edit
+- record: start a new one and finish the last one
 
 V3
 - analyze: split tags

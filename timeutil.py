@@ -7,7 +7,8 @@ def now():
 def to_filename_component(t):
     hours = str(t.hour).rjust(2, '0')
     mins = str(t.minute).rjust(2, '0')
-    return '{}-{}'.format(hours, mins)
+    secs = str(t.second).rjust(2, '0')
+    return '{}-{}-{}'.format(hours, mins, secs)
 
 def serialize(t):
     return t.isoformat()

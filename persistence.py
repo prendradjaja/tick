@@ -53,15 +53,16 @@ class _Persistence:
     def write_entry(self, e):
         time = timeutil.deserialize(e.start)  # TODO should Entries themselves be automatically (de)serialized
         time = timeutil.to_filename_component(time)
-        description = e.description[:10]
-        description = re.sub(r'[^A-Za-z]', '-', description)
-        description = description.lower()
-        my_uuid = e.uuid
+        # description = e.description[:10]
+        # description = re.sub(r'[^A-Za-z]', '-', description)
+        # description = description.lower()
+        my_uuid = str(e.uuid).replace('-', '')
+        print(my_uuid)
 
         date_dir = os.path.join(self._db_dir, e.date)
         self._ensure_dir_exists(date_dir)
 
-        filename = '{}--{}--{}'.format(time, description, my_uuid)
+        filename = '{}--{}'.format(time, my_uuid)
         path = os.path.join(date_dir, filename)
         obj = {
             'data': e,
@@ -75,7 +76,7 @@ class _Persistence:
         date_dir = os.path.join(self._db_dir, today)  # TODO duped in write_entry, should be inst attr
         self._ensure_dir_exists(date_dir)
 
-        entries = sorted(os.listdir(date_dir))
+        entries = sorted(x for x in os.listdir(date_dir) if not x.startswith('H'))  # TODO clean up the human-exclusion code
 
         if entries:
             path = os.path.join(self._db_dir, date_dir, entries[-1])
