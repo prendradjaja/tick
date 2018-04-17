@@ -57,7 +57,8 @@ class _Persistence:
         # description = re.sub(r'[^A-Za-z]', '-', description)
         # description = description.lower()
         my_uuid = str(e.uuid).replace('-', '')
-        print(my_uuid)
+        # # DEBUG
+        # print(my_uuid)
 
         date_dir = os.path.join(self._db_dir, e.date)
         self._ensure_dir_exists(date_dir)

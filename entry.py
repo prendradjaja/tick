@@ -28,7 +28,9 @@ def persist(e):
     # print('Persisting', e)  # DEBUG
     validate(e)
     persistence.write_entry(e)
-    print('Writing: ({} - {}) [{}] {}'.format(e.start, e.stop, e.color, e.description))
+
+    # # DEBUG:
+    # print('Writing: ({} - {}) [{}] {}'.format(e.start, e.stop, e.color, e.description))
 
 def get():
     pass
